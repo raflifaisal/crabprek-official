@@ -1,56 +1,398 @@
-/* =========================================================
-   CRABPREK — ULTRA LUXURY ANIMATED BACKGROUND
-   ========================================================= */
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRABPREK — Crispy Baby Crab Payakumbuh</title>
 
-/* 3. Latar Belakang Utama dengan Animasi Pendaran Cahaya Bergerak */
-body {
-  color: var(--text-main);
-  background-color: var(--bg-primary);
-  /* Kombinasi gradasi gelap mewah dan lampu pendar ambient */
-  background-image: 
-    radial-gradient(circle at 15% 20%, rgba(230, 57, 70, 0.25) 0%, transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(244, 162, 97, 0.20) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(231, 111, 81, 0.15) 0%, transparent 60%);
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-}
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-/* 4. Efek Cahaya Bergerak Dinamis (Ambient Aura Animation) */
-body::before {
-  content: "";
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200vw;
-  height: 200vw;
-  background: radial-gradient(circle, rgba(230, 57, 70, 0.12) 0%, rgba(244, 162, 97, 0.05) 30%, transparent 70%);
-  animation: rotateAura 20s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 
-@keyframes rotateAura {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-/* 5. Lapisan Tambahan: Efek Titik Cahaya / Micro-Sparkles */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 0);
-  background-size: 36px 36px;
-  pointer-events: none;
-  z-index: 0;
-}
+  <!-- KODE CSS GABUNGAN (Luxury Dark Spice & Animated Background) -->
+  <style>
+    :root {
+      --bg-primary: #0a0a0d;
+      --bg-secondary: #13131a;
+      --bg-glass: rgba(19, 19, 26, 0.75);
+      --primary-spice: #e63946;
+      --primary-glow: rgba(230, 57, 70, 0.25);
+      --accent-gold: #f4a261;
+      --accent-amber: #e76f51;
+      --text-main: #f8f9fa;
+      --text-muted: #94a3b8;
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(230, 57, 70, 0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Background Utama dengan Efek Pendaran Bergerak */
+    body {
+      color: var(--text-main);
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(230, 57, 70, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(244, 162, 97, 0.20) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(231, 111, 81, 0.15) 0%, transparent 60%);
+      background-attachment: fixed;
+      background-size: cover;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Aura Cahaya Berputar */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200vw;
+      height: 200vw;
+      background: radial-gradient(circle, rgba(230, 57, 70, 0.12) 0%, rgba(244, 162, 97, 0.05) 30%, transparent 70%);
+      animation: rotateAura 20s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes rotateAura {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Mikro Kilau Titik */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 0);
+      background-size: 36px 36px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(10, 10, 13, 0.8);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border-glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--primary-spice), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar a {
+      color: var(--text-muted);
+      margin-left: 25px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 7% 60px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-content max-width {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .badge-top {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(230, 57, 70, 0.15);
+      border: 1px solid var(--border-glow);
+      color: var(--accent-gold);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary-spice), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Glass Card & Form Container */
+    .glass-container {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto 80px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .glass-container h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .glass-container p.subtitle {
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(10, 10, 13, 0.6);
+      border: 1px solid var(--border-glass);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-spice);
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    /* Tombol Pesan WhatsApp */
+    .btn-order {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-spice), var(--accent-amber));
+      color: #ffffff;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px var(--primary-glow);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-order:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(230, 57, 70, 0.45);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-glass);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .glass-container { padding: 25px; margin: 0 20px 60px; }
+      .navbar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">CRAB<span>PREK</span></div>
+    <nav class="navbar">
+      <a href="#home">Beranda</a>
+      <a href="#order">Pesan Online</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="fade-up">
+      <div class="badge-top">Artisan Luxury Seafood — Payakumbuh</div>
+      <h1>Sensasi Mewah <span>Baby Crab Krispi</span> Berbalut Sambal Legendaris</h1>
+      <p>Nikmati kerenyahan cangkang lembut udang kepiting pilihan di Taman Batang Agam. Diracik dengan rempah pilihan khas Group 7 Management Universitas Andalas.</p>
+    </div>
+  </section>
+
+  <!-- Form Pemesanan Interaktif & WhatsApp Auto-Sender -->
+  <section id="order">
+    <div class="glass-container" data-aos="fade-up" data-aos-delay="200">
+      <h2>Pesan Langsung</h2>
+      <p class="subtitle">Isi formulir di bawah untuk pemesanan cepat via WhatsApp</p>
+      
+      <form id="whatsappForm">
+        <div class="form-group">
+          <label for="nama">Nama Pemesan</label>
+          <input type="text" id="nama" class="form-control" placeholder="Contoh: Budi Santoso" required>
+        </div>
+
+        <div class="form-group">
+          <label for="menu">Pilihan Menu</label>
+          <select id="menu" class="form-control">
+            <option value="Paket Baby Crab Sambal Bawang (Rp 20.000)">Paket Sambal Bawang - Rp 20.000</option>
+            <option value="Paket Baby Crab Sambal Matah (Rp 22.000)">Paket Sambal Matah - Rp 22.000</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="jumlah">Jumlah Porsi</label>
+          <input type="number" id="jumlah" class="form-control" value="1" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="catatan">Catatan Tambahan (Opsional)</label>
+          <input type="text" id="catatan" class="form-control" placeholder="Contoh: Sambal dipisah / extra pedas">
+        </div>
+
+        <button type="submit" class="btn-order">
+          <i data-feather="message-circle"></i> Kirim Pesanan ke WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 CRABPREK Payakumbuh. Group 7 Management Universitas Andalas. All Rights Reserved.</p>
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- KODE JAVASCRIPT GABUNGAN (Inisialisasi Animasi & Logika WhatsApp) -->
+  <script>
+    // 1. Inisialisasi AOS (Animate on Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // 2. Inisialisasi Feather Icons
+    feather.replace();
+
+    // 3. Logika Otomatis Pengiriman Pesanan ke WhatsApp
+    const whatsappForm = document.getElementById('whatsappForm');
+    
+    whatsappForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah form reload halaman
+
+      // Mengambil data dari inputan form
+      const nama = document.getElementById('nama').value;
+      const menu = document.getElementById('menu').value;
+      const jumlah = document.getElementById('jumlah').value;
+      const catatan = document.getElementById('catatan').value;
+
+      // Nomor WhatsApp Admin CRABPREK (Ganti dengan nomor Anda, format: 628xxxxxxxxxx)
+      const nomorAdmin = "6281234567890"; 
+
+      // Format teks pesan yang rapi
+      const pesan = `Halo Admin CRABPREK! 👋\n\nSaya ingin memesan:\n* Nama: ${nama}\n* Menu: ${menu}\n* Jumlah: ${jumlah} Porsi\n* Catatan: ${catatan || '-'}\n\nMohon segera diproses ya, terima kasih! 🦀🔥`;
+
+      // Encode pesan agar aman dibaca URL browser
+      const pesanEncoded = encodeURIComponent(pesan);
+
+      // Membuka tautan WhatsApp secara otomatis
+      const urlWhatsApp = `https://wa.me/${nomorAdmin}?text=${pesanEncoded}`;
+      window.open(urlWhatsApp, '_blank');
+    });
+  </script>
+
+</body>
+</html>
