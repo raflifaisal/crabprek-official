@@ -1,299 +1,354 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRABPREK - Pelopor Baby Crab Geprek</title>
+  <title>CRABPREK — Artisan Seafood Geprek Payakumbuh</title>
 
-  <!-- Ikon & Font -->
-  <link rel="icon" href="logo-crabprek.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Mengambil Font Mewah: Playfair Display (Klasik) & Plus Jakarta Sans (Modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- SEMUA DESAIN (CSS) DIGABUNG DISINI AGAR TIDAK ERROR -->
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- SEMUA DESAIN (CSS) DIGABUNG DISINI -->
   <style>
     :root {
-      --primary: #ff1b4e;
-      --secondary: #ff7b00;
-      --dark: #050505;
-      --glass: rgba(20, 20, 20, 0.7);
-      --glass-border: rgba(255, 27, 78, 0.3);
-      --text: #ffffff;
+      --bg-dark: #0a0a0c; /* Hitam elegan/Charcoal */
+      --gold: #d4af37; /* Emas mewah */
+      --gold-light: #f3e5ab;
+      --ruby: #8a1c1c; /* Merah marun gelap */
+      --text-main: #f8f8f8;
+      --text-muted: #9ca3af;
+      --glass-bg: rgba(20, 20, 22, 0.6);
+      --glass-border: rgba(212, 175, 55, 0.2);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; outline: none; border: none; text-decoration: none; }
-    html { scroll-behavior: smooth; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; outline: none; }
+    
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--dark);
-      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Latar Belakang Bara Api Animasi */
-    .fire-bg {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-      background: radial-gradient(circle at 15% 50%, rgba(255, 27, 78, 0.15), transparent 25%),
-                  radial-gradient(circle at 85% 30%, rgba(255, 123, 0, 0.15), transparent 25%);
-      animation: firePulse 8s infinite alternate;
-    }
-    @keyframes firePulse {
-      0% { opacity: 0.5; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1.1); }
+    /* Latar Belakang Cahaya Mewah */
+    body::before {
+      content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05), transparent 40%),
+                  radial-gradient(circle at 80% 80%, rgba(138, 28, 28, 0.08), transparent 40%);
+      z-index: -1; pointer-events: none;
     }
 
-    /* Teks Gradasi Menyala */
-    .text-glow {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-shadow: 0px 0px 20px rgba(255, 27, 78, 0.5);
+    /* Font Khusus untuk Judul */
+    h1, h2, h3, .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+    /* --- 1. TOP BAR --- */
+    .top-bar {
+      background: #050505; color: var(--gold); font-size: 0.8rem; letter-spacing: 1px;
+      text-align: center; padding: 8px 15px; border-bottom: 1px solid var(--glass-border);
+      text-transform: uppercase;
     }
 
-    /* Navbar Kaca */
+    /* --- 2. NAVBAR MEWAH --- */
     .navbar {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 7%; background: var(--glass);
-      backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
-      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      padding: 20px 8%; background: rgba(10, 10, 12, 0.8);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .navbar-logo { font-size: 2rem; font-weight: 900; color: #fff; letter-spacing: 2px;}
-    .navbar-logo span { color: var(--primary); }
-    .navbar-nav a { color: #fff; margin: 0 1.5rem; font-weight: 600; transition: 0.3s; }
-    .navbar-nav a:hover { color: var(--primary); }
+    .navbar-logo { color: #fff; font-size: 1.8rem; letter-spacing: 2px; display: flex; flex-direction: column; line-height: 1; }
+    .navbar-logo span { color: var(--gold); }
+    .logo-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); margin-top: 5px; }
     
-    /* Hero Section */
+    .navbar-nav a { color: var(--text-main); margin: 0 15px; font-size: 0.9rem; font-weight: 300; letter-spacing: 1px; transition: 0.3s; }
+    .navbar-nav a:hover, .navbar-nav a.active { color: var(--gold); }
+
+    .btn-vip-nav {
+      border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 0px; /* Sudut tajam = elegan */
+      font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; transition: 0.4s;
+    }
+    .btn-vip-nav:hover { background: var(--gold); color: #000; }
+
+    /* --- 3. HERO SECTION --- */
     .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 0 7%; position: relative; padding-top: 80px;
+      padding: 120px 8% 80px; text-align: center; max-width: 1000px; margin: 0 auto;
     }
-    .hero h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
-    .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 30px; line-height: 1.8; }
-    .typewriter-box { font-size: 1.5rem; font-weight: 600; color: var(--secondary); height: 40px; margin-bottom: 30px; }
+    .pill-badge {
+      display: inline-block; border: 1px solid var(--glass-border); color: var(--gold);
+      padding: 6px 20px; border-radius: 50px; font-size: 0.8rem; letter-spacing: 1px;
+      margin-bottom: 30px; text-transform: uppercase; background: var(--glass-bg);
+    }
+    .hero-title {
+      font-size: 4rem; line-height: 1.2; margin-bottom: 25px;
+    }
+    .hero-title span { font-style: italic; color: var(--gold); font-weight: 500; }
+    .hero-description {
+      font-size: 1.1rem; color: var(--text-muted); font-weight: 300; max-width: 700px; margin: 0 auto 40px;
+    }
+
+    /* Tombol Utama Mewah */
+    .hero-cta-group { display: flex; justify-content: center; gap: 20px; margin-bottom: 60px; }
+    .btn-primary-glow {
+      background: var(--gold); color: #000; padding: 15px 35px; font-weight: 600;
+      letter-spacing: 1px; display: flex; align-items: center; gap: 10px; transition: 0.4s;
+    }
+    .btn-primary-glow:hover { box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); transform: translateY(-3px); }
     
-    /* Tombol Utama */
-    .btn-fire {
-      display: inline-block; padding: 15px 35px; border-radius: 50px;
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
-      color: #fff; font-weight: 800; font-size: 1.1rem;
-      box-shadow: 0 10px 20px rgba(255, 27, 78, 0.4); transition: 0.4s;
+    .hero-stats {
+      display: flex; justify-content: center; gap: 40px; border-top: 1px solid var(--glass-border); padding-top: 40px;
     }
-    .btn-fire:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 30px rgba(255, 123, 0, 0.6); }
+    .stat-card h4 { font-size: 2rem; color: var(--gold); margin-bottom: 5px; }
+    .stat-card p { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-    /* Bagian Global (About, Menu, Contact) */
-    section { padding: 6rem 7%; }
-    .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem; text-transform: uppercase; }
+    /* --- UMUM & GRID --- */
+    section { padding: 80px 8%; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-tag { font-size: 0.8rem; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .section-header h2 { font-size: 3rem; margin-bottom: 15px; }
+    .section-header h2 span { font-style: italic; color: var(--gold); font-weight: 500; }
 
-    /* Grid Layout */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-    /* Glass Card untuk Menu */
-    .glass-card {
-      background: var(--glass); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;
-      padding: 30px; transition: 0.4s; position: relative; overflow: hidden;
+    /* --- 4. KARTU MENU (LUXURY GLASS CARD) --- */
+    .menu-card-premium {
+      background: var(--glass-bg); border: 1px solid var(--glass-border);
+      padding: 20px; transition: 0.5s; position: relative; overflow: hidden;
     }
-    .glass-card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(255,27,78,0.2); }
+    .menu-card-premium:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
     
-    /* Gambar Menu Palsu Estetik */
-    .menu-img { width: 100%; height: 200px; border-radius: 15px; object-fit: cover; margin-bottom: 15px; }
-    .menu-badge { position: absolute; top: 15px; right: 15px; background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+    .card-image-container { position: relative; width: 100%; height: 250px; overflow: hidden; margin-bottom: 20px; }
+    .card-image-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: 0.5s; }
+    .menu-card-premium:hover .card-image-container img { filter: brightness(1) scale(1.05); transform: scale(1.05); }
     
-    .menu-content h3 { font-size: 1.5rem; margin-bottom: 10px; }
-    .menu-content p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px; }
-    .menu-price { font-size: 1.8rem; font-weight: 900; color: var(--secondary); margin-bottom: 20px; }
-
-    /* Form WhatsApp Cerdas */
-    .wa-form { display: flex; flex-direction: column; gap: 1.5rem; }
-    .input-box {
-      background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
-      padding: 15px 20px; border-radius: 12px; color: #fff; font-family: 'Poppins'; font-size: 1rem;
-      width: 100%; transition: 0.3s;
+    .badge-signature {
+      position: absolute; top: 15px; right: 15px; background: rgba(10,10,12,0.8); border: 1px solid var(--gold);
+      color: var(--gold); padding: 5px 15px; font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; z-index: 2;
     }
-    .input-box:focus { border-color: var(--secondary); box-shadow: 0 0 15px rgba(255, 123, 0, 0.3); }
-    select.input-box { cursor: pointer; }
-    select.input-box option { background: var(--dark); color: #fff; }
 
-    footer { text-align: center; padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #64748b; }
+    .card-meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
+    .card-meta i { width: 12px; color: var(--gold); }
+    
+    .card-details h3 { font-size: 1.4rem; margin-bottom: 10px; letter-spacing: 0.5px; }
+    .card-details p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; font-weight: 300; }
+    
+    .card-price-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 15px; }
+    .price .currency { font-size: 0.9rem; color: var(--gold); margin-right: 5px; }
+    .price .amount { font-size: 1.5rem; font-family: 'Playfair Display'; color: #fff; }
+    
+    /* --- 5. FORMULIR PEMESANAN VIP --- */
+    .configurator-wrapper { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+    .config-info h2 { font-size: 2.5rem; margin-bottom: 20px; }
+    .config-steps { list-style: none; margin-top: 30px; }
+    .config-steps li { margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted); display: flex; align-items: center; gap: 15px; }
+    .step-num { color: var(--gold); font-family: 'Playfair Display'; font-size: 1.5rem; font-style: italic; }
 
-    /* HP Version Responsive */
+    /* Desain Input Form Elegan */
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 0; color: #fff; font-family: 'Plus Jakarta Sans'; font-size: 1rem; transition: 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-bottom-color: var(--gold); }
+    .form-group select option { background: var(--bg-dark); color: #fff; }
+
+    .btn-submit-wa {
+      width: 100%; background: var(--gold); color: #000; padding: 15px; border: none; font-weight: 600;
+      letter-spacing: 1px; display: flex; justify-content: center; align-items: center; gap: 10px;
+      cursor: pointer; transition: 0.4s; margin-top: 20px;
+    }
+    .btn-submit-wa:hover { background: #fff; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px; border-top: 1px solid var(--glass-border); font-size: 0.8rem; color: var(--text-muted); letter-spacing: 1px; }
+    .footer-logo { font-family: 'Playfair Display'; font-size: 2rem; color: #fff; margin-bottom: 15px; display: block; }
+    .footer-logo span { color: var(--gold); }
+
+    /* Responsif untuk HP */
     @media (max-width: 768px) {
-      .navbar-nav { display: none; } /* Sembunyikan menu di HP agar ringkas */
-      .hero h1 { font-size: 3rem; }
-      .grid-2 { grid-template-columns: 1fr; }
+      .navbar-nav { display: none; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-stats { flex-direction: column; gap: 20px; }
+      .configurator-wrapper { grid-template-columns: 1fr; padding: 25px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="fire-bg"></div>
+  <div class="top-bar">
+    CRABPREK PAYAKUMBUH • ARTISAN SEAFOOD GEPREK • 100% HALAL
+  </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" data-aos="fade-down">
-    <a href="#" class="navbar-logo">CRAB<span class="text-glow">PREK</span></a>
+  <header class="navbar">
+    <a href="#" class="navbar-logo">
+      <span class="logo-text">CRAB<span>PREK</span></span>
+      <span class="logo-sub">PAYAKUMBUH</span>
+    </a>
     <div class="navbar-nav">
-      <a href="#home">Home</a>
-      <a href="#about">Mengapa Kami?</a>
-      <a href="#menu">Menu Spesial</a>
-      <a href="#contact">Order WA</a>
+      <a href="#home">Beranda</a>
+      <a href="#menu">Signature Menu</a>
+      <a href="#configurator">Reservasi & Pesan</a>
     </div>
-  </nav>
+    <a href="#configurator" class="btn-vip-nav">Pesan VIP</a>
+  </header>
 
-  <!-- HERO SECTION -->
   <section class="hero" id="home">
-    <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
-      <h1>Sensasi Pedasnya <br><span class="text-glow">Bikin Meledak!</span></h1>
-      <div class="typewriter-box"><span id="typed-text"></span></div>
-      <p>Nikmati baby crab utuh super crispy yang bisa dikunyah sampai ke cangkangnya. Disiram sambal bawang asli, dijamin bikin keringatan dan ketagihan!</p>
-      <a href="#menu" class="btn-fire"><i class="fas fa-fire"></i> Order Sekarang</a>
+    <div class="pill-badge">Pengalaman Seafood Premium</div>
+    <h1 class="hero-title">Renyahnya Baby Crab Geprek <span>Tanpa Ribet Dikupas.</span></h1>
+    <p class="hero-description">Inovasi kuliner pilihan dari pesisir Sumatera Barat. Baby crab segar super renyah yang bisa dimakan utuh dari cangkang hingga daging, dipadu racikan sambal ulek artisan.</p>
+    
+    <div class="hero-cta-group">
+      <a href="#configurator" class="btn-primary-glow">Rancang Porsi Anda <i data-feather="arrow-right"></i></a>
     </div>
-  </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <h2 class="section-title" data-aos="fade-up">Kenapa Harus <span class="text-glow">CRABPREK?</span></h2>
-    <div class="grid-2">
-      <div class="glass-card" data-aos="fade-right">
-        <!-- Foto Estetik dari Unsplash -->
-        <img src="https://images.unsplash.com/photo-1559742811-822873691fc8?q=80&w=800&auto=format&fit=crop" style="width: 100%; border-radius: 15px;" alt="Crab">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <h4>100%</h4><p>Edible Shell (Bisa Dimakan Utuh)</p>
       </div>
-      <div data-aos="fade-left">
-        <h3 style="font-size: 2rem; margin-bottom: 20px;">Tanpa Ribet Kupas Cangkang!</h3>
-        <p style="color: #cbd5e1; line-height: 1.8; margin-bottom: 20px;">Kami menggunakan teknik penggorengan *deep-fry* rahasia. Baby crab hasil tangkapan nelayan lokal diolah sedemikian rupa sehingga <strong>100% aman dan renyah dikunyah secara utuh</strong>.</p>
-        <ul style="list-style: none; color: #fff;">
-          <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Cangkang Super Crispy</li>
-          <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Sambal Ulek Dadakan Asli</li>
-          <li style="margin-bottom: 15px;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Harga Pas di Kantong Pelajar</li>
-        </ul>
+      <div class="stat-card">
+        <h4>5.0</h4><p>Rating Kualitas Rasa</p>
+      </div>
+      <div class="stat-card">
+        <h4>Rp 20K</h4><p>Harga Terjangkau</p>
       </div>
     </div>
   </section>
 
-  <!-- MENU SECTION -->
   <section id="menu">
-    <h2 class="section-title" data-aos="fade-up">Menu <span class="text-glow">Favorit</span></h2>
+    <div class="section-header">
+      <span class="section-tag">Our Signature Selection</span>
+      <h2>Menu Pilihan <span>Favorit Pelanggan</span></h2>
+    </div>
+
     <div class="grid-3">
-      
       <!-- Menu 1 -->
-      <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="menu-badge">Best Seller 🔥</div>
-        <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?q=80&w=600&auto=format&fit=crop" alt="Sambal" class="menu-img">
-        <div class="menu-content">
-          <h3>Paket Crabprek Bawang</h3>
-          <p>Nasi hangat, Baby Crab Crispy utuh, Tahu, Tempe, Lalapan, & guyuran Sambal Bawang sadis.</p>
-          <div class="menu-price">Rp 20.000</div>
-          <a href="#contact" class="btn-fire" style="padding: 10px 20px; font-size: 1rem; width: 100%; text-align: center;"><i class="fas fa-shopping-cart"></i> Pilih Ini</a>
+      <article class="menu-card-premium">
+        <div class="card-image-container">
+          <span class="badge-signature">Best Seller</span>
+          <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?q=80&w=600&auto=format&fit=crop" alt="Sambal Bawang">
         </div>
-      </div>
+        <div class="card-details">
+          <div class="card-meta"><span><i data-feather="star"></i> 5.0 (120+ ulasan)</span></div>
+          <h3>Crabprek Sambal Bawang</h3>
+          <p>Nasi hangat, Baby Crab Crispy utuh, Tahu, Tempe, Lalapan Segar, dan Sambal Geprek Ulek Bawang.</p>
+          <div class="card-price-row">
+            <div class="price"><span class="currency">IDR</span><span class="amount">20.000</span></div>
+          </div>
+        </div>
+      </article>
 
       <!-- Menu 2 -->
-      <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="menu-badge">Khas Bali 🌴</div>
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop" alt="Matah" class="menu-img">
-        <div class="menu-content">
-          <h3>Paket Crabprek Matah</h3>
-          <p>Nasi hangat, Baby Crab Crispy utuh, Tahu, Tempe, Lalapan, & segar pedasnya Sambal Matah Limau.</p>
-          <div class="menu-price">Rp 20.000</div>
-          <a href="#contact" class="btn-fire" style="padding: 10px 20px; font-size: 1rem; width: 100%; text-align: center;"><i class="fas fa-shopping-cart"></i> Pilih Ini</a>
+      <article class="menu-card-premium">
+        <div class="card-image-container">
+          <span class="badge-signature">Khas Bali</span>
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop" alt="Sambal Matah">
         </div>
-      </div>
+        <div class="card-details">
+          <div class="card-meta"><span><i data-feather="star"></i> 4.9 (95+ ulasan)</span></div>
+          <h3>Crabprek Sambal Matah</h3>
+          <p>Nasi hangat, Baby Crab Crispy utuh, Tahu, Tempe, Lalapan, dan kesegaran Sambal Matah Limau.</p>
+          <div class="card-price-row">
+            <div class="price"><span class="currency">IDR</span><span class="amount">20.000</span></div>
+          </div>
+        </div>
+      </article>
 
       <!-- Menu 3 -->
-      <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="menu-badge">Camilan 🍿</div>
-        <img src="https://images.unsplash.com/photo-1582500057074-688db3d8916d?q=80&w=600&auto=format&fit=crop" alt="Snack" class="menu-img">
-        <div class="menu-content">
-          <h3>Baby Crab A-la Carte</h3>
-          <p>1 Porsi Full Baby Crab Crispy renyah gurih tanpa nasi. Cocok banget buat nemenin nonton drakor.</p>
-          <div class="menu-price">Rp 15.000</div>
-          <a href="#contact" class="btn-fire" style="padding: 10px 20px; font-size: 1rem; width: 100%; text-align: center;"><i class="fas fa-shopping-cart"></i> Pilih Ini</a>
+      <article class="menu-card-premium">
+        <div class="card-image-container">
+          <span class="badge-signature">Snack Only</span>
+          <img src="https://images.unsplash.com/photo-1582500057074-688db3d8916d?q=80&w=600&auto=format&fit=crop" alt="Snack Ala Carte">
         </div>
-      </div>
-
+        <div class="card-details">
+          <div class="card-meta"><span><i data-feather="star"></i> 4.8 (80+ ulasan)</span></div>
+          <h3>Baby Crab Ala Carte</h3>
+          <p>1 Porsi Penuh Baby Crab Crispy tanpa nasi. Cocok untuk camilan santai kelas atas.</p>
+          <div class="card-price-row">
+            <div class="price"><span class="currency">IDR</span><span class="amount">15.000</span></div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- CONTACT & ORDER SECTION -->
-  <section id="contact">
-    <h2 class="section-title" data-aos="fade-up">Order & <span class="text-glow">Lokasi</span></h2>
-    <div class="grid-2">
-      
-      <!-- Peta -->
-      <div class="glass-card" data-aos="fade-right">
-        <h3>📍 Markas Kami</h3>
-        <p style="color: #cbd5e1; margin-bottom: 20px;">Taman Batang Agam, Kec. Payakumbuh Barat.<br>Buka: Sabtu & Minggu (07.00 - 17.00 WIB)</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15957.144426541785!2d100.61331711204642!3d-0.22467369999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2ab398e0a35e7d%3A0x6b4fb6c11dbb5b15!2sTaman%20Batang%20Agam!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+  <section id="configurator">
+    <div class="configurator-wrapper">
+      <div class="config-info">
+        <span class="section-tag">Customize Your Order</span>
+        <h2>Atur Porsi Sesuai <span>Selera Anda</span></h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Gunakan layanan pemesanan VIP kami. Pesanan Anda akan langsung dihubungkan ke WhatsApp Concierge kami.</p>
+        <ul class="config-steps">
+          <li><span class="step-num">1</span> Masukkan Identitas Diri</li>
+          <li><span class="step-num">2</span> Tentukan Varian Sambal Autentik</li>
+          <li><span class="step-num">3</span> Atur Tingkat Kepedasan</li>
+        </ul>
       </div>
 
-      <!-- Form WA Otomatis (Ini menggunakan JavaScript di bawah) -->
-      <div class="glass-card" data-aos="fade-left">
-        <h3 style="margin-bottom: 20px;"><i class="fab fa-whatsapp" style="color: #25D366;"></i> Form Order Cepat</h3>
-        <form id="orderForm" class="wa-form">
-          <input type="text" id="namaPelanggan" class="input-box" placeholder="Nama Lengkap Kamu" required>
-          <select id="pilihanMenu" class="input-box" required>
-            <option value="">-- Pilih Menu Andalan --</option>
-            <option value="Paket Sambal Bawang (Rp 20.000)">Paket Sambal Bawang (Rp 20K)</option>
-            <option value="Paket Sambal Matah (Rp 20.000)">Paket Sambal Matah (Rp 20K)</option>
-            <option value="Camilan A-la Carte (Rp 15.000)">Camilan A-la Carte (Rp 15K)</option>
-          </select>
-          <select id="levelPedas" class="input-box" required>
-            <option value="">-- Pilih Level Pedas --</option>
-            <option value="Sedang (Biasa Aja)">Sedang (Biasa Aja)</option>
-            <option value="Pedas (Bikin Keringetan)">Pedas (Bikin Keringetan)</option>
-            <option value="Extra Pedas (Meledak!)">Extra Pedas (Meledak!)</option>
-          </select>
-          <!-- Tombol akan memicu Javascript -->
-          <button type="submit" class="btn-fire" style="border: none; cursor: pointer;"><i class="fas fa-paper-plane"></i> Kirim Order ke WA</button>
+      <div class="config-card-form">
+        <form id="wa-form">
+          <div class="form-group">
+            <label>Nama Pemesan</label>
+            <input type="text" id="custName" placeholder="Ketik nama Anda di sini..." required>
+          </div>
+          <div class="form-group">
+            <label>Pilihan Menu Utama</label>
+            <select id="custMenu" required>
+              <option value="">-- Pilih Varian Signature --</option>
+              <option value="Paket Sambal Bawang (Rp 20.000)">Paket Sambal Bawang — Rp 20.000</option>
+              <option value="Paket Sambal Matah (Rp 20.000)">Paket Sambal Matah — Rp 20.000</option>
+              <option value="Baby Crab Ala Carte (Rp 15.000)">Baby Crab Ala Carte — Rp 15.000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tingkat Kepedasan</label>
+            <select id="custSpice" required>
+              <option value="">-- Pilih Level Pedas --</option>
+              <option value="Level 1 (Sedang)">Level 1 — Pedas Sedang</option>
+              <option value="Level 3 (Pedas Mantap)">Level 3 — Pedas Mantap</option>
+              <option value="Level 5 (Extra Pedas)">Level 5 — Extra Pedas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Catatan Tambahan (Opsional)</label>
+            <input type="text" id="custNote" placeholder="Contoh: Sambal dipisah...">
+          </div>
+          <button type="submit" class="btn-submit-wa">
+            <i data-feather="send"></i> Kirim Pesanan VIP via WhatsApp
+          </button>
         </form>
       </div>
-
     </div>
   </section>
 
   <footer>
-    <div style="font-size: 1.5rem; margin-bottom: 15px;">
-      <a href="https://instagram.com/crabprek" style="color: #fff; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
-      <a href="https://tiktok.com/@crabprek" style="color: #fff; margin: 0 10px;"><i class="fab fa-tiktok"></i></a>
-    </div>
-    &copy; 2026 CRABPREK Payakumbuh. Dikembangkan oleh Kelompok 7 M2 Universitas Andalas.
+    <a href="#" class="footer-logo">CRAB<span>PREK</span></a>
+    <p>&copy; 2026 CRABPREK Indonesia. Artisan Seafood Geprek Payakumbuh.</p>
+    <p style="margin-top: 10px; font-size: 0.7rem;">Dikembangkan oleh Kelompok 7 M2 Universitas Andalas</p>
   </footer>
 
-  <!-- SCRIPT KEAJAIBAN (Animasi & Logika WA) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  
+  <!-- SCRIPT -->
   <script>
-    // Inisialisasi Animasi Scroll
-    AOS.init({ duration: 1000, once: true });
+    feather.replace(); // Memunculkan Ikon
 
-    // Efek Mengetik Otomatis
-    new Typed('#typed-text', {
-      strings: [
-        "100% Kepiting Asli! 🦀", 
-        "Tanpa Ribet Kupas Cangkang!", 
-        "Harga Mahasiswa, Rasa Sultan! 🔥"
-      ],
-      typeSpeed: 50, backSpeed: 30, loop: true, backDelay: 2000
-    });
-
-    // LOGIKA FORMULIR KE WHATSAPP (SANGAT CERDAS)
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Mencegah loading halaman
+    // Logika Pengiriman WhatsApp Otomatis
+    document.getElementById('wa-form').addEventListener('submit', function(e) {
+      e.preventDefault();
       
-      // Mengambil data ketikan pelanggan
-      let nama = document.getElementById('namaPelanggan').value;
-      let menu = document.getElementById('pilihanMenu').value;
-      let level = document.getElementById('levelPedas').value;
+      let name = document.getElementById('custName').value;
+      let menu = document.getElementById('custMenu').value;
+      let spice = document.getElementById('custSpice').value;
+      let note = document.getElementById('custNote').value;
+      if(!note) note = "-";
       
-      // Menyusun format pesan WA otomatis
-      let pesanWA = `Halo Admin CRABPREK! %F0%9F%94%A5%0A%0ASaya mau order nih:%0A%E2%97%BE *Nama:* ${nama}%0A%E2%97%BE *Pesanan:* ${menu}%0A%E2%97%BE *Level Pedas:* ${level}%0A%0ATolong ditotalin harganya ya Min, makasih! %F0%9F%A6%80`;
+      let waMessage = `*CRABPREK VIP ORDER*%0A%0A*Nama Pemesan:* ${name}%0A*Menu Pilihan:* ${menu}%0A*Level Pedas:* ${spice}%0A*Catatan Khusus:* ${note}%0A%0AMohon segera diproses ya. Terima kasih.`;
       
-      // Membuka WA dengan nomor Admin CRABPREK
-      window.open(`https://wa.me/6282362129646?text=${pesanWA}`, '_blank');
+      window.open(`https://wa.me/6282362129646?text=${waMessage}`, '_blank');
     });
   </script>
-
 </body>
 </html>
