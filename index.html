@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRABPREK - Seafood Geprek Payakumbuh</title>
+  
+  <!-- Mengambil Font Modern & Ikon -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Variabel Warna */
+    :root {
+      --primary: #ff416c;
+      --secondary: #ff4b2b;
+      --dark-bg: #0f172a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-light: #f8fafc;
+    }
+
+    /* Pengaturan Dasar */
+    body {
+      margin: 0; padding: 0; 
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg); 
+      color: var(--text-light);
+      background-image: radial-gradient(circle at top right, rgba(255,65,108,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(255,75,43,0.1) 0%, transparent 50%);
+    }
+
+    /* Teks Gradasi */
+    .gradient-text {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Bagian Atas (Header) */
+    header {
+      text-align: center; 
+      padding: 60px 20px 30px;
+    }
+    
+    .logo-img {
+      width: 160px; 
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(255, 65, 108, 0.4);
+      border: 4px solid #2a354b;
+      /* Efek animasi melayang */
+      animation: float 3s ease-in-out infinite; 
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    header h1 {
+      font-size: 46px; 
+      margin: 20px 0 5px; 
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+    
+    header p {
+      font-size: 18px; 
+      color: #94a3b8; 
+      font-weight: 400;
+      margin-top: 0;
+    }
+
+    /* Wadah Konten & Kartu (Glassmorphism) */
+    .container { 
+      max-width: 800px; 
+      margin: 0 auto; 
+      padding: 20px; 
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 30px; 
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 10px 30px rgba(255,65,108,0.15); 
+      border-color: rgba(255,65,108,0.3);
+    }
+
+    h2 { 
+      margin-top: 0; 
+      font-size: 24px; 
+      border-bottom: 2px solid rgba(255,255,255,0.1); 
+      padding-bottom: 10px;
+    }
+
+    /* Info Lokasi */
+    .info-list {
+      list-style: none;
+      padding: 0;
+    }
+    .info-list li {
+      margin-bottom: 15px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .info-list i {
+      color: var(--primary);
+      font-size: 20px;
+      width: 25px;
+      text-align: center;
+    }
+
+    /* Desain Menu */
+    .menu-item {
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0,0,0,0.4); 
+      padding: 20px; 
+      border-radius: 16px; 
+      border-left: 5px solid var(--primary);
+      margin-top: 15px;
+    }
+    
+    .menu-title { font-size: 20px; font-weight: 600; }
+    .price { font-size: 26px; font-weight: 800; color: var(--primary); }
+    .menu-desc { font-size: 14px; color: #94a3b8; margin-top: 10px; line-height: 1.6;}
+
+    /* Tombol Sosial Media & Order */
+    .btn-group { 
+      display: flex; flex-direction: column; gap: 15px; align-items: center; margin-top: 20px; 
+    }
+    
+    .btn {
+      width: 100%; max-width: 350px; 
+      padding: 16px 20px;
+      border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px;
+      color: white; display: flex; align-items: center; justify-content: center; gap: 12px;
+      transition: all 0.3s;
+    }
+    
+    .btn-wa { background: #25D366; box-shadow: 0 8px 20px rgba(37,211,102,0.25); }
+    .btn-wa:hover { background: #1ebe57; transform: scale(1.03); }
+    
+    .btn-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); box-shadow: 0 8px 20px rgba(225,48,108,0.25); }
+    .btn-ig:hover { transform: scale(1.03); }
+
+    .btn-tt { background: #000000; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+    .btn-tt:hover { border-color: #ff0050; transform: scale(1.03); }
+
+    /* Footer */
+    footer { 
+      text-align: center; padding: 30px; color: #64748b; font-size: 14px; 
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Logo disesuaikan dengan yang ada di GitHub -->
+    <img src="logo-crabprek.png.png" alt="Logo Crabprek" class="logo-img">
+    <h1 class="gradient-text">CRABPREK</h1>
+    <p>"Sensasi Seafood Geprek Pedas, Harga Puas!"</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- Kartu Tentang -->
+    <div class="card">
+      <h2 class="gradient-text">Tentang Kami</h2>
+      <p style="line-height: 1.7;">Bosan dengan olahan geprek ayam yang itu-itu saja? Cobain <strong>CRABPREK</strong>! Kami adalah pelopor hidangan kepiting geprek pertama di Kota Payakumbuh. Nikmati sensasi menyantap <em>baby crab</em> utuh yang digoreng super renyah sehingga bisa dimakan seluruh bagiannya tanpa perlu ribet mengupas cangkang!</p>
+    </div>
+
+    <!-- Kartu Menu -->
+    <div class="card">
+      <h2 class="gradient-text">Menu Andalan</h2>
+      <div class="menu-item">
+        <div>
+          <div class="menu-title">Paket Nasi Baby Crab Geprek</div>
+          <div class="menu-desc">Sudah termasuk: Nasi hangat, Baby Crab Crispy, Tahu, Tempe, Lalapan segar, + Pilihan Sambal Bawang / Sambal Matah.</div>
+        </div>
+        <div class="price">20K</div>
+      </div>
+    </div>
+
+    <!-- Kartu Lokasi -->
+    <div class="card">
+      <h2 class="gradient-text">Kunjungi Stand Kami</h2>
+      <ul class="info-list">
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span><strong>Lokasi:</strong> Taman Batang Agam (Kuliner Batang Agam), Kec. Payakumbuh Barat</span>
+        </li>
+        <li>
+          <i class="fas fa-clock"></i>
+          <span><strong>Jam Buka:</strong> Sabtu & Minggu (07.00 - 17.00 WIB)</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Kartu Order & Sosmed -->
+    <div class="card" style="text-align: center;">
+      <h2 class="gradient-text">Pesan & Follow Kami</h2>
+      <p style="margin-bottom: 25px; color: #94a3b8;">Hindari antrean! Pesan online sekarang atau kepoin konten terbaru kami.</p>
+      
+      <div class="btn-group">
+        <a href="https://wa.me/6282362129646" class="btn btn-wa" target="_blank">
+          <i class="fab fa-whatsapp" style="font-size: 22px;"></i> Pesan via WhatsApp
+        </a>
+        <a href="https://instagram.com/crabprek" class="btn btn-ig" target="_blank">
+          <i class="fab fa-instagram" style="font-size: 22px;"></i> Follow Instagram
+        </a>
+        <!-- Tautan TikTok -->
+        <a href="https://tiktok.com/@crabprek" class="btn btn-tt" target="_blank">
+          <i class="fab fa-tiktok" style="font-size: 20px;"></i> Follow TikTok
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 CRABPREK Payakumbuh.<br>
+    <span style="font-size: 12px; margin-top: 10px; display: inline-block;">Didirikan oleh: Rafli, Ochy, Rafiqul, & Fardah (Kelompok 7, Manajemen UNAND).</span>
+  </footer>
+
+</body>
+</html>
