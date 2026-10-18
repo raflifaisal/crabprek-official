@@ -134,52 +134,37 @@
     }
   </style>
   /* --- ANIMASI OPENING (PRELOADER) --- */
+/* --- ANIMASI OPENING VIDEO HD --- */
 #preloader {
-  position: fixed; top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: var(--bg-dark); /* Warna hitam tema kita */
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: #0a0a0c; z-index: 99999;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
-  z-index: 99999; /* Memastikan ini selalu di atas */
   transition: opacity 0.8s ease, visibility 0.8s ease;
+  overflow: hidden;
 }
 
-/* Class ini akan dipanggil JS untuk menyembunyikan layar */
 .preloader-hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0; visibility: hidden;
 }
 
-/* Animasi Jalan Goyang Kepiting */
-.crab-container {
-  animation: walkSideways 1.5s infinite alternate ease-in-out;
+#preloader-video {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -2;
 }
 
-@keyframes walkSideways {
-  0% { transform: translateX(-20px) translateY(0) rotate(-5deg); }
-  50% { transform: translateX(0) translateY(-10px) rotate(0deg); }
-  100% { transform: translateX(20px) translateY(0) rotate(5deg); }
+.preloader-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(10, 10, 12, 0.7); /* Efek gelap agar teks tetap terbaca */
+  z-index: -1;
 }
 
-/* Animasi Gerak Capit */
-.left-arm { animation: snapLeft 0.5s infinite alternate ease-in-out; }
-.right-arm { animation: snapRight 0.5s infinite alternate ease-in-out; }
-
-@keyframes snapLeft {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(-25deg); }
-}
-@keyframes snapRight {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(25deg); }
-}
-
-/* Efek Teks Loading */
 .loading-text {
-  margin-top: 20px; color: var(--gold); font-family: 'Playfair Display', serif;
-  font-size: 1.5rem; letter-spacing: 5px; animation: pulse 1s infinite alternate;
+  position: relative; z-index: 1; color: #d4af37;
+  font-family: 'Playfair Display', serif; font-size: 2rem; letter-spacing: 5px;
+  animation: pulse 1s infinite alternate;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
+@keyframes pulse { 
+  0% { opacity: 0.3; } 
+  100% { opacity: 1; } 
 }
