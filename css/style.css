@@ -41,7 +41,7 @@
       position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     
-    .navbar-logo { color: #fff; font-size: 1.8rem; letter-spacing: 2px; display: flex; flex-direction: column; line-height: 1; }
+    .navbar-logo { color: #3b0e0e; font-size: 1.8rem; letter-spacing: 2px; display: flex; flex-direction: column; line-height: 1; }
     .navbar-logo span { color: var(--gold); }
     .logo-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem; letter-spacing: 4px; color: var(--text-muted); margin-top: 5px; }
     
@@ -133,3 +133,53 @@
       .about-wrapper { padding: 20px; }
     }
   </style>
+  /* --- ANIMASI OPENING (PRELOADER) --- */
+#preloader {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: var(--bg-dark); /* Warna hitam tema kita */
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  z-index: 99999; /* Memastikan ini selalu di atas */
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Class ini akan dipanggil JS untuk menyembunyikan layar */
+.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Animasi Jalan Goyang Kepiting */
+.crab-container {
+  animation: walkSideways 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes walkSideways {
+  0% { transform: translateX(-20px) translateY(0) rotate(-5deg); }
+  50% { transform: translateX(0) translateY(-10px) rotate(0deg); }
+  100% { transform: translateX(20px) translateY(0) rotate(5deg); }
+}
+
+/* Animasi Gerak Capit */
+.left-arm { animation: snapLeft 0.5s infinite alternate ease-in-out; }
+.right-arm { animation: snapRight 0.5s infinite alternate ease-in-out; }
+
+@keyframes snapLeft {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-25deg); }
+}
+@keyframes snapRight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(25deg); }
+}
+
+/* Efek Teks Loading */
+.loading-text {
+  margin-top: 20px; color: var(--gold); font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; letter-spacing: 5px; animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}

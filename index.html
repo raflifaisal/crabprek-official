@@ -16,6 +16,46 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- LAYAR PEMBUKA (PRELOADER) -->
+  <div id="preloader">
+    <div class="crab-container">
+      <!-- Gambar Vektor SVG Kepiting -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="150" height="150">
+        <!-- Kaki Kiri -->
+        <path d="M 60 90 L 30 110 L 30 130" stroke="#d4af37" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M 70 100 L 40 120 L 40 140" stroke="#d4af37" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <!-- Kaki Kanan -->
+        <path d="M 140 90 L 170 110 L 170 130" stroke="#d4af37" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M 130 100 L 160 120 L 160 140" stroke="#d4af37" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+        <!-- Lengan & Capit Kiri (Animasi) -->
+        <g class="left-arm" style="transform-origin: 60px 70px;">
+          <path d="M 60 70 Q 30 40 40 20" stroke="#d4af37" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M 40 20 C 20 0, 0 30, 20 40" fill="#8a1c1c"/>
+          <path d="M 40 20 C 50 10, 60 20, 30 35" fill="#8a1c1c"/>
+        </g>
+
+        <!-- Lengan & Capit Kanan (Animasi) -->
+        <g class="right-arm" style="transform-origin: 140px 70px;">
+          <path d="M 140 70 Q 170 40 160 20" stroke="#d4af37" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M 160 20 C 180 0, 200 30, 180 40" fill="#8a1c1c"/>
+          <path d="M 160 20 C 150 10, 140 20, 170 35" fill="#8a1c1c"/>
+        </g>
+
+        <!-- Badan Kepiting -->
+        <path d="M 50 70 C 50 40, 150 40, 150 70 C 160 100, 40 100, 50 70 Z" fill="#d4af37"/>
+        <path d="M 60 75 C 60 55, 140 55, 140 75 C 145 95, 55 95, 60 75 Z" fill="#0a0a0c"/>
+
+        <!-- Mata -->
+        <circle cx="80" cy="50" r="6" fill="#f8f8f8"/>
+        <circle cx="80" cy="50" r="2" fill="#8a1c1c"/>
+        <circle cx="120" cy="50" r="6" fill="#f8f8f8"/>
+        <circle cx="120" cy="50" r="2" fill="#8a1c1c"/>
+      </svg>
+    </div>
+    <h2 class="loading-text">CRABPREK...</h2>
+  </div>
+  <!-- SELESAI LAYAR PEMBUKA -->
 
   <div class="top-bar">
     CRABPREK PAYAKUMBUH • 100% HALAL • BUKA SABTU & MINGGU (07.00 - 17.00)
